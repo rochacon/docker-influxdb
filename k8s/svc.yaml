@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: influxdb-t
+  labels:
+    name: influxdb
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8083
+    name: admin
+  - port: 8086
+    protocol: TCP
+    targetPort: 8086
+    name: api
+  selector:
+    name: influxdb
